@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LuckyFragment">
+
+
+    <CheckBox
+        android:id="@+id/happyCb"
+        android:layout_centerInParent="true"
+        android:text="Estás feliz?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"/>
+    <CheckBox
+        android:enabled="false"
+        android:button="@drawable/cb_mood_bg"
+        android:id="@+id/moodCb"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/happyCb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/luckyBtn"
+        android:layout_marginBottom="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
