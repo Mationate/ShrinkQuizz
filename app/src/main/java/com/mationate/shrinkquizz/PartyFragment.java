@@ -1,6 +1,8 @@
 package com.mationate.shrinkquizz;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -51,11 +53,12 @@ public class PartyFragment extends Fragment {
 
                 int id = radioGroup.getCheckedRadioButtonId();
 
-                if (id != -1){
+                if (id != -1) {
 
                     RadioButton radioButton = radioGroup.findViewById(id);
                     String answer = radioButton.getText().toString();
-                    Toast.makeText(getContext(), answer, Toast.LENGTH_SHORT).show();
+                    showDialog(answer);
+
 
                 } else {
                     Toast.makeText(getContext(), "Debes marcar una opción", Toast.LENGTH_SHORT).show();
@@ -64,6 +67,22 @@ public class PartyFragment extends Fragment {
 
             }
         });
+
+
+    }
+
+    private void showDialog(String answer) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+        alertDialog.setTitle("Nivel de fiesta");
+        alertDialog.setMessage(new PartyResults(answer).score());
+        alertDialog.setPositiveButton("yeahh", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alertDialog.show();
 
 
     }
